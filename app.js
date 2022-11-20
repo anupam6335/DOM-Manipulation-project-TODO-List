@@ -1,45 +1,45 @@
-// Define UI Vars
+// Define UI variable
 const form = document.querySelector('#task-form');
 const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
-const taskInput = document.querySelector('#task');
+const taskInput = document.querySelector('.task');
 
-// Load all event listeners
-loadEventListeners();
 
-// Load all event listeners
-function loadEventListeners() {
-  // Add task event
+// load all even listenser
+loadAllEventListners();
+
+function loadAllEventListners() {
+  // add task event
   form.addEventListener('submit', addTask);
 }
 
-// Add Task
+// Add Task function
 function addTask(e) {
+
   if(taskInput.value === '') {
     alert('Add a task');
   }
 
-  // Create li element
-  const li = document.createElement('li');
-  // Add class
+  // create element
+  const li = document.querySelector('li');
+  // li class name
   li.className = 'collection-item';
-  // Create text node and append to li
+  // create Text node appened to the li
   li.appendChild(document.createTextNode(taskInput.value));
-  // Create new link element
-  const link = document.createElement('a');
+  // create new link
+  const link = document.createElement(a);
   // Add class
   link.className = 'delete-item secondary-content';
-  // Add icon html
+  // Add icon
   link.innerHTML = '<i class="fa fa-remove"></i>';
-  // Append the link to li
+  // append link to li
   li.appendChild(link);
+  // console.log(li);
+  // append li to ul
+  taskList.appendChild(li);  
 
-  // Append li to ul
-  taskList.appendChild(li);
-
-  // Clear input
+  // clear task 
   taskInput.value = '';
-
   e.preventDefault();
 }
