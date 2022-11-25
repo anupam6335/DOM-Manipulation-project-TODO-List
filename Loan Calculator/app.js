@@ -55,6 +55,11 @@ function calculateResults(e) {
 }
 
 function showError(error='please check your amount') {
+    // Show results
+    document.getElementById('results').style.display = 'none';
+
+    // Hide loader
+    document.getElementById('loading').style.display = 'none';
     // create Div
     const errorDiv = document.createElement("div");
 
@@ -72,7 +77,7 @@ function showError(error='please check your amount') {
     card.insertBefore(errorDiv, heading);
 
     // clear error after 3 seconds
-    setTimeout(clearError, 3000);
+    setTimeout(clearError, 1000);
 }
 
 function clearError() {
